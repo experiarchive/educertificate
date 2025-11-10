@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>손해평가사 상담 안내</title>
+    <link
+      rel="preconnect"
+      href="https://cdn.jsdelivr.net"
+      crossorigin
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.css"
+    />
+    <style>
+      :root {
+        --primary: #1a1f2e;
+        --secondary: #4a5166;
+        --muted: #697189;
+        --accent-orange: #ff6b35;
+        --accent-purple: #7a4dff;
+        --accent-yellow: #ffd23f;
+        --border: #e3e6ef;
+        --card-bg: #f7f9fc;
+        --max-width: 1100px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+        background: #ffffff;
+        color: var(--primary);
+        line-height: 1.6;
+        letter-spacing: -0.02em;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .page {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      section {
+        padding: 100px 0;
+      }
+
+      .hero {
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(180deg, #ffffff 0%, #f4f6fb 100%);
+      }
+
+      .hero-inner {
+        text-align: center;
+        padding: 60px 0;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 18px;
+        border-radius: 999px;
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--accent-purple);
+        background: rgba(122, 77, 255, 0.12);
+      }
+
+      h1 {
+        font-size: clamp(36px, 5.6vw, 56px);
+        font-weight: 700;
+        margin: 24px 0 16px;
+      }
+
+      .highlight {
+        color: var(--accent-orange);
+      }
+
+      .hero p {
+        font-size: clamp(18px, 3vw, 20px);
+        color: var(--secondary);
+        margin-bottom: 32px;
+      }
+
+      .cta-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 14px 32px;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        background: linear-gradient(135deg, #ff6b35, #ff8a5b);
+        color: #fff;
+        box-shadow: 0 8px 18px rgba(255, 107, 53, 0.3);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 10px 24px rgba(255, 107, 53, 0.4);
+      }
+
+      .eyebrow-note {
+        display: inline-flex;
+        gap: 6px;
+        color: var(--muted);
+        font-size: 16px;
+        margin-top: 16px;
+        align-items: center;
+      }
+
+      .section-title {
+        font-size: clamp(28px, 4vw, 40px);
+        font-weight: 700;
+        margin-bottom: 48px;
+        text-align: center;
+      }
+
+      .section-title span {
+        color: var(--accent-purple);
+      }
+
+      .offer-section {
+        padding: 80px 0;
+      }
+
+      .offer-card {
+        background: linear-gradient(135deg, #693df7, #8e3eff);
+        border-radius: 28px;
+        padding: 48px;
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .offer-card::after {
+        content: '';
+        position: absolute;
+        inset: 12px;
+        border-radius: 22px;
+        border: 1px dashed rgba(255, 255, 255, 0.4);
+        pointer-events: none;
+      }
+
+      .priority-sticker {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        background: #ffd23f;
+        color: #1a1f2e;
+        padding: 10px 20px;
+        border-radius: 999px;
+        font-weight: 800;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        transform: rotate(6deg);
+      }
+
+      .offer-content {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 32px;
+        align-items: center;
+      }
+
+      .offer-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.18);
+        font-weight: 600;
+      }
+
+      .offer-title {
+        font-size: 32px;
+        font-weight: 700;
+        margin: 18px 0 8px;
+      }
+
+      .offer-gift {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.12);
+        padding: 18px;
+        border-radius: 16px;
+      }
+
+      .offer-gift img {
+        width: 60px;
+        height: 60px;
+      }
+
+      .icon-stack {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        justify-content: center;
+      }
+
+      .icon-stack img {
+        width: 80px;
+        height: 80px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.12);
+        padding: 18px;
+      }
+
+      .slots-remaining {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px 28px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #ff6b35, #ffb347);
+        color: #fff;
+        font-weight: 700;
+        font-size: 18px;
+        letter-spacing: -0.01em;
+        box-shadow: 0 18px 30px rgba(255, 107, 53, 0.25);
+        margin: 28px auto 0;
+        min-width: 220px;
+      }
+
+      .slots-remaining.slot-highlight {
+        animation: slotPulse 1.1s ease;
+      }
+
+      .slots-remaining.slot-change {
+        animation: slotFlash 0.9s ease;
+      }
+
+      .live-feed {
+        margin: 32px auto 0;
+        border-radius: 32px;
+        border: 1px solid var(--border);
+        box-shadow: 0 25px 70px rgba(26, 31, 46, 0.08);
+        overflow: hidden;
+        max-width: 520px;
+      }
+
+      .live-feed-header {
+        background: linear-gradient(135deg, #1a1f2e, #2d3560);
+        color: #fff;
+        padding: 24px;
+      }
+
+      .live-feed-header h3 {
+        margin: 0;
+        font-size: 22px;
+        font-weight: 700;
+      }
+
+      .live-feed-header span {
+        font-size: 15px;
+        opacity: 0.85;
+        margin-top: 6px;
+        display: block;
+      }
+
+      .live-feed-window {
+        max-height: 360px;
+        overflow: hidden;
+        background: #fff;
+      }
+
+      .live-feed-track {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 24px;
+        animation: feedScroll 22s linear infinite;
+      }
+
+      .live-feed:hover .live-feed-track {
+        animation-play-state: paused;
+      }
+
+      @keyframes feedScroll {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-50%);
+        }
+      }
+
+      .feed-card {
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 16px 20px;
+        background: #fff;
+        box-shadow: 0 10px 30px rgba(26, 31, 46, 0.06);
+      }
+
+      .feed-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+
+      .feed-age {
+        font-size: 14px;
+        color: var(--muted);
+      }
+
+      .feed-phone {
+        font-size: 15px;
+        margin-bottom: 8px;
+        color: var(--secondary);
+      }
+
+      .feed-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      @keyframes slotPulse {
+        0% {
+          transform: scale(0.92);
+        }
+        60% {
+          transform: scale(1.05);
+          box-shadow: 0 22px 40px rgba(255, 107, 53, 0.35);
+        }
+        100% {
+          transform: scale(1);
+          box-shadow: 0 18px 30px rgba(255, 107, 53, 0.25);
+        }
+      }
+
+      @keyframes slotFlash {
+        0% {
+          background: linear-gradient(135deg, #ffd23f, #ffea7a);
+        }
+        100% {
+          background: linear-gradient(135deg, #ff6b35, #ffb347);
+        }
+      }
+
+      .status-badge {
+        padding: 6px 14px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 600;
+        display: inline-block;
+      }
+
+      .status-success {
+        background: rgba(6, 214, 160, 0.15);
+        color: #04a777;
+      }
+
+      .status-wait {
+        background: rgba(255, 210, 63, 0.18);
+        color: #c18400;
+      }
+
+      .status-progress {
+        background: rgba(122, 77, 255, 0.15);
+        color: #6941da;
+      }
+
+      .benefit-section {
+        background: #fff;
+        border-radius: 36px;
+        border: 2px solid rgba(26, 31, 46, 0.08);
+        padding: 56px 48px;
+        box-shadow: 0 40px 90px rgba(26, 31, 46, 0.12);
+      }
+
+      .benefit-summary {
+        text-align: center;
+        margin-bottom: 32px;
+        font-size: 18px;
+        color: var(--secondary);
+      }
+
+      .benefit-summary strong {
+        color: var(--accent-orange);
+      }
+
+      .benefit-panel {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+      }
+
+      .benefit-item {
+        position: relative;
+        padding: 32px 28px;
+        border-radius: 24px;
+        background: var(--card-bg);
+        border: 1px solid rgba(26, 31, 46, 0.1);
+      }
+
+      .benefit-item::before {
+        content: attr(data-label);
+        position: absolute;
+        top: -16px;
+        left: 24px;
+        padding: 6px 14px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 14px;
+        background: var(--primary);
+        color: #fff;
+      }
+
+      .benefit-item h3 {
+        font-size: 26px;
+        margin-bottom: 12px;
+      }
+
+      .benefit-keyword {
+        display: inline-block;
+        font-size: 28px;
+        font-weight: 800;
+        background: linear-gradient(120deg, #ff6b35, #ffb347);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .benefit-item p {
+        margin: 10px 0 0;
+        color: var(--secondary);
+        font-size: 18px;
+      }
+
+      .benefit-table-note {
+        text-align: center;
+        font-size: 16px;
+        color: var(--secondary);
+        margin-top: 20px;
+      }
+
+      .reason-table {
+        margin-top: 32px;
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: 0 25px 70px rgba(26, 31, 46, 0.08);
+      }
+
+      .reason-header {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background: #0d4d24;
+        color: #fff;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-align: center;
+        padding: 16px 12px;
+        font-size: 16px;
+      }
+
+      .reason-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        border-top: 1px dashed rgba(26, 31, 46, 0.1);
+        background: #fff;
+      }
+
+      .reason-row:first-of-type {
+        border-top: none;
+      }
+
+      .reason-left,
+      .reason-right {
+        padding: 24px;
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+      }
+
+      .reason-right {
+        border-left: 1px solid rgba(26, 31, 46, 0.06);
+        color: var(--secondary);
+        font-size: 15px;
+        line-height: 1.5;
+      }
+
+      .reason-index {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: rgba(0, 128, 0, 0.08);
+        color: #0d4d24;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+      }
+
+      .reason-left-title {
+        font-size: 17px;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+
+      .reason-left-highlight {
+        font-size: 16px;
+        font-weight: 700;
+        color: #d61c1c;
+      }
+
+      .form-wrapper {
+        max-width: 520px;
+        margin: 0 auto;
+        border-radius: 28px;
+        border: 1px solid var(--border);
+        overflow: hidden;
+        box-shadow: 0 25px 60px rgba(26, 31, 46, 0.12);
+      }
+
+      iframe {
+        width: 100%;
+        border: none;
+        display: block;
+      }
+
+      .faq {
+        max-width: 720px;
+        margin: 0 auto;
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        overflow: hidden;
+      }
+
+      .faq-item {
+        padding: 28px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .faq-item:last-child {
+        border-bottom: none;
+      }
+
+      .faq-question {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .faq-answer {
+        color: var(--muted);
+        margin: 0;
+      }
+
+      .cta-center {
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      footer {
+        text-align: center;
+        color: var(--muted);
+        padding: 60px 0;
+        border-top: 1px solid var(--border);
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(60px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 767px) {
+        section {
+          padding: 70px 0;
+        }
+
+        .offer-card {
+          padding: 32px 24px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .feed-card {
+          padding: 14px 16px;
+        }
+
+        .feed-card-header {
+          font-size: 15px;
+        }
+
+        .feed-phone {
+          font-size: 14px;
+        }
+
+        .live-feed-track {
+          padding: 20px;
+          gap: 10px;
+        }
+
+        .reason-table {
+          border-radius: 20px;
+        }
+
+        .reason-header {
+          grid-template-columns: 1fr;
+        }
+
+        .reason-row {
+          grid-template-columns: 1fr;
+        }
+
+        .reason-right {
+          border-left: none;
+          border-top: 1px solid rgba(26, 31, 46, 0.06);
+        }
+
+        .reason-left,
+        .reason-right {
+          padding: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <div class="page hero-inner">
+        <div class="eyebrow">손해평가사 응시 준비 전용</div>
+        <h1>합격시 <span class="highlight">수강료 100% 환불</span></h1>
+        <p>
+          실력으로 합격하고, 돈도 돌려받으세요.<br />
+          상담만 해도 <strong>적중 예상문제</strong>를 무료로 드립니다.
+        </p>
+        <a class="cta-button" href="#consult-form">🎁 지금 바로 무료 상담 신청하기</a>
+        <div class="eyebrow-note">
+          <span>⏱</span>
+          <span>평균 24시간 이내에 상담 전화를 드립니다.</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="offer-section page reveal" id="gift">
+      <div class="offer-card">
+        <span class="priority-sticker">선착순 50명</span>
+        <div class="offer-content">
+          <div>
+            <div class="offer-badge">NEW 혜택 안내</div>
+            <div class="offer-title">시험 안내 · 적중 예상문제 증정</div>
+            <p class="offer-subtitle" style="font-size:18px;margin-bottom:24px;">
+              상담 신청만 해도 상세 시험 안내와 적중 예상문제 PDF를 무료로 드립니다.
+            </p>
+            <div class="offer-gift">
+              <img
+                src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4da.svg"
+                alt="자료 아이콘"
+                loading="lazy"
+              />
+              <div>
+                시험 일정, 합격 전략 안내와 적중 예상문제를 한번에 받아보세요.
+              </div>
+            </div>
+          </div>
+          <div class="icon-stack" aria-hidden="true">
+            <img
+              src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f52e.svg"
+              alt=""
+              loading="lazy"
+            />
+            <img
+              src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f381.svg"
+              alt=""
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="slots-remaining" id="slotsRemaining">⚡ 현재 9명 남음</div>
+    </section>
+
+    <section class="page reveal" id="live-feed">
+      <div class="live-feed">
+        <div class="live-feed-header">
+          <h3>실시간 상담자 리스트</h3>
+          <span>방금 신청한 분들 · 계속 업데이트 중</span>
+        </div>
+        <div class="live-feed-window" id="live-feed-window">
+          <div class="live-feed-track" id="live-feed-track"></div>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <section class="page reveal" id="benefit">
+        <div class="benefit-section">
+          <h2 class="section-title" style="margin-bottom: 28px;">
+            혜택을 <span>한눈에 확인</span>
+          </h2>
+          <p class="benefit-summary">
+            <strong>합격 = 수강료 환불</strong>, <strong>상담 = 즉시 자료</strong>를 확실히
+            보장합니다.
+          </p>
+          <div class="benefit-panel">
+            <article class="benefit-item" data-label="혜택 1">
+              <h3>합격하면</h3>
+              <span class="benefit-keyword">수강료 전액 환불</span>
+              <p>실력으로 합격하고 비용은 돌려받으세요. 합격 인증만 하면 환불이 진행됩니다.</p>
+            </article>
+            <article class="benefit-item" data-label="혜택 2">
+              <h3>상담 완료 시</h3>
+              <span class="benefit-keyword">시험 안내 + 적중 예상문제</span>
+              <p>상담을 마치는 즉시 시험 일정 안내와 적중 예상문제를 바로 전달해 드립니다.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="page reveal" id="why">
+        <h2 class="section-title">⏰ 지금 상담 신청하세요!</h2>
+        <p style="text-align:center; color: var(--secondary); margin-bottom: 24px;">
+          무료 지원 혜택을 놓치면 다시 받기 어렵습니다. 핵심 지원 내용을 한눈에 확인하세요.
+        </p>
+        <div class="reason-table">
+          <div class="reason-header">
+            <span>무료지원내용</span>
+            <span>내 용</span>
+          </div>
+            <div class="reason-row">
+              <div class="reason-left">
+                <div class="reason-index">01</div>
+                <div>
+                  <div class="reason-left-title">국가공인자격증 취득</div>
+                  <div class="reason-left-highlight">전문가 무료컨설팅</div>
+                </div>
+              </div>
+              <div class="reason-right">
+                무제한 1:1 전문가 상담으로 합격 전략을 맞춤 설계해 드립니다.
+              </div>
+            </div>
+            <div class="reason-row">
+              <div class="reason-left">
+                <div class="reason-index">02</div>
+                <div>
+                  <div class="reason-left-title">손해평가사 자격증</div>
+                  <div class="reason-left-highlight">96% 적중문제 무료 제공</div>
+                </div>
+              </div>
+              <div class="reason-right">
+                자격증 취득 부담을 줄이기 위해 기출·적중 문제 풀이 자료를 전부 지원합니다.
+              </div>
+            </div>
+            <div class="reason-row">
+              <div class="reason-left">
+                <div class="reason-index">03</div>
+                <div>
+                  <div class="reason-left-title">자격증 취득 후 진로 상담</div>
+                  <div class="reason-left-highlight">취업률 90% 육박 · 협회 연계</div>
+                </div>
+              </div>
+              <div class="reason-right">
+                취업 연계와 정보 공유를 통해 빠르게 현업에 안착하도록 돕습니다.
+              </div>
+            </div>
+        </div>
+        <p style="text-align:center; margin-top:28px; color: var(--muted);">
+          상담 = 무료 자료 │ 합격 = 수강료 환불 │ 상담 완료 시 혜택 즉시 적용
+        </p>
+        <div class="cta-center">
+          <a class="cta-button" href="#consult-form">👉 지금 신청하지 않으면 손해</a>
+        </div>
+      </section>
+
+      <section class="page reveal" id="consult-form">
+        <h2 class="section-title">
+          손해평가사 <span>상담 신청</span>
+        </h2>
+        <p style="text-align: center; color: var(--muted); margin-bottom: 28px;">
+          <strong style="color: var(--accent-orange);">30~55세</strong> 지원자를 우선으로 배정하며, 남겨주신
+          정보는 상담 외 다른 용도로 사용하지 않습니다.
+        </p>
+        <div class="form-wrapper">
+          <iframe
+            src="https://marketclub.cafe24.com/form_make/form.php?type=default&pt=hominyaya&it=740&rgb1=&rgb2=&rgb3=&rgb4=&rgb5=&rgb6=&btn_name=&tracking_gubun=&tracking_code=&tracking_label="
+            height="660"
+            title="손해평가사 상담 신청 폼"
+          ></iframe>
+        </div>
+      </section>
+
+      <section class="page reveal" id="faq">
+        <h2 class="section-title">자주 묻는 질문</h2>
+        <div class="faq">
+          <div class="faq-item">
+            <div class="faq-question">Q. 상담 받으면 꼭 수강해야 하나요?</div>
+            <p class="faq-answer">
+              A. 아니요. 상담만 받아도 예상문제를 드립니다.
+            </p>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Q. 합격하면 정말 수강료를 돌려주나요?</div>
+            <p class="faq-answer">
+              A. 네, 합격 증명 시 수강료 100% 환불됩니다.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>© edu_certificate. All rights reserved.</footer>
+
+            <script>
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      reveals.forEach(section => observer.observe(section));
+
+      const slotsEl = document.getElementById('slotsRemaining');
+      const liveFeedTrack = document.getElementById('live-feed-track');
+
+      const applicants = [
+        { name: '박**', age: 49, phone: '010-6***-8123', status: '신청완료' },
+        { name: '이**', age: 42, phone: '010-3***-2910', status: '신청완료' },
+        { name: '김**', age: 55, phone: '010-5***-4402', status: '상담중' },
+        { name: '최**', age: 38, phone: '010-2***-1301', status: '신청완료' },
+        { name: '정**', age: 47, phone: '010-9***-0204', status: '신청완료' },
+        { name: '한**', age: 52, phone: '010-1***-7744', status: '신청완료' },
+        { name: '윤**', age: 45, phone: '010-7***-6642', status: '검토중' }
+      ];
+
+      const statusClass = {
+        신청완료: 'status-success',
+        상담중: 'status-progress',
+        검토중: 'status-wait',
+        상담대기: 'status-wait'
+      };
+
+      const statusNotes = {
+        신청완료: '서류 접수 완료',
+        상담중: '상담 진행 중',
+        검토중: '정보 확인 중',
+        상담대기: '상담 대기 중'
+      };
+
+      function createCard(app) {
+        const card = document.createElement('div');
+        card.className = 'feed-card';
+
+        const header = document.createElement('div');
+        header.className = 'feed-card-header';
+        header.innerHTML = `<span>${app.name}</span><span class="feed-age">${app.age}세</span>`;
+
+        const phone = document.createElement('div');
+        phone.className = 'feed-phone';
+        phone.textContent = app.phone;
+
+        const statusWrap = document.createElement('div');
+        statusWrap.className = 'feed-status';
+
+        const badge = document.createElement('span');
+        badge.className = `status-badge ${statusClass[app.status] || 'status-success'}`;
+        badge.textContent = app.status;
+
+        const note = document.createElement('span');
+        note.textContent = statusNotes[app.status] || '';
+        note.style.color = 'var(--muted)';
+        note.style.fontSize = '13px';
+
+        statusWrap.appendChild(badge);
+        statusWrap.appendChild(note);
+
+        card.appendChild(header);
+        card.appendChild(phone);
+        card.appendChild(statusWrap);
+        return card;
+      }
+
+      function renderCards() {
+        if (!liveFeedTrack) return;
+        liveFeedTrack.innerHTML = '';
+        const duplicated = applicants.concat(applicants);
+        duplicated.forEach((app, idx) => {
+          const card = createCard(app);
+          if (idx >= applicants.length) {
+            card.setAttribute('aria-hidden', 'true');
+          }
+          liveFeedTrack.appendChild(card);
+        });
+      }
+
+      function refreshApplicants() {
+        applicants.push(applicants.shift());
+        applicants.forEach((app, idx) => {
+          if (idx % 2 === 0) {
+            app.status = '신청완료';
+          }
+        });
+        renderCards();
+      }
+
+      let remainingSlots = 9;
+      let slotAnimated = false;
+
+      function updateSlotText() {
+        if (slotsEl) {
+          slotsEl.textContent = `⚡ 현재 ${remainingSlots}명 남음`;
+        }
+      }
+
+      updateSlotText();
+      renderCards();
+
+      if (slotsEl) {
+        const slotObserver = new IntersectionObserver(
+          entries => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting && !slotAnimated) {
+                slotAnimated = true;
+                slotsEl.classList.add('slot-highlight');
+                setTimeout(() => {
+                  remainingSlots = Math.max(remainingSlots - 1, 0);
+                  updateSlotText();
+                  slotsEl.classList.add('slot-change');
+                  setTimeout(() => slotsEl.classList.remove('slot-change'), 900);
+                }, 900);
+                slotObserver.disconnect();
+              }
+            });
+          },
+          { threshold: 0.6 }
+        );
+
+        slotObserver.observe(slotsEl);
+      }
+
+      setInterval(refreshApplicants, 9000);
+    </script>
+
+
+  </body>
+</html>
