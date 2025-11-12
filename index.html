@@ -1,977 +1,509 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>손해평가사 상담 안내</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>손해평가사 랜딩</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="preconnect"
-      href="https://cdn.jsdelivr.net"
-      crossorigin
+      href="https://fonts.googleapis.com/css2?family=SUIT:wght@400;600&display=swap"
+      rel="stylesheet"
     />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css"
     />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              display: ['"Pretendard"', '"SUIT"', "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
     <style>
       :root {
-        --primary: #1a1f2e;
-        --secondary: #4a5166;
-        --muted: #697189;
-        --accent-orange: #ff6b35;
-        --accent-purple: #7a4dff;
-        --accent-yellow: #ffd23f;
-        --border: #e3e6ef;
-        --card-bg: #f7f9fc;
-        --max-width: 1100px;
+        --hero-media-width: 100%;
       }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
-        background: #ffffff;
-        color: var(--primary);
-        line-height: 1.6;
-        letter-spacing: -0.02em;
-      }
-
-      img {
-        max-width: 100%;
-        display: block;
-      }
-
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-
-      .page {
-        max-width: var(--max-width);
-        margin: 0 auto;
-        padding: 0 24px;
-      }
-
-      section {
-        padding: 100px 0;
-      }
-
-      .hero {
-        min-height: 90vh;
-        display: flex;
-        align-items: center;
-        background: linear-gradient(180deg, #ffffff 0%, #f4f6fb 100%);
-      }
-
-      .hero-inner {
-        text-align: center;
-        padding: 60px 0;
-      }
-
-      .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 8px 18px;
-        border-radius: 999px;
-        font-size: 18px;
-        font-weight: 600;
-        color: var(--accent-purple);
-        background: rgba(122, 77, 255, 0.12);
-      }
-
-      h1 {
-        font-size: clamp(36px, 5.6vw, 56px);
-        font-weight: 700;
-        margin: 24px 0 16px;
-      }
-
-      .highlight {
-        color: var(--accent-orange);
-      }
-
-      .hero p {
-        font-size: clamp(18px, 3vw, 20px);
-        color: var(--secondary);
-        margin-bottom: 32px;
-      }
-
-      .cta-button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        padding: 14px 32px;
-        border-radius: 10px;
-        font-size: 16px;
-        font-weight: 600;
-        background: linear-gradient(135deg, #ff6b35, #ff8a5b);
-        color: #fff;
-        box-shadow: 0 8px 18px rgba(255, 107, 53, 0.3);
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
-      }
-
-      .cta-button:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 10px 24px rgba(255, 107, 53, 0.4);
-      }
-
-      .eyebrow-note {
-        display: inline-flex;
-        gap: 6px;
-        color: var(--muted);
-        font-size: 16px;
-        margin-top: 16px;
-        align-items: center;
-      }
-
-      .section-title {
-        font-size: clamp(28px, 4vw, 40px);
-        font-weight: 700;
-        margin-bottom: 48px;
-        text-align: center;
-      }
-
-      .section-title span {
-        color: var(--accent-purple);
-      }
-
-      .offer-section {
-        padding: 80px 0;
-      }
-
-      .offer-card {
-        background: linear-gradient(135deg, #693df7, #8e3eff);
-        border-radius: 28px;
-        padding: 48px;
-        color: #fff;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .offer-card::after {
-        content: '';
-        position: absolute;
-        inset: 12px;
-        border-radius: 22px;
-        border: 1px dashed rgba(255, 255, 255, 0.4);
-        pointer-events: none;
-      }
-
-      .priority-sticker {
-        position: absolute;
-        top: 20px;
-        right: 30px;
-        background: #ffd23f;
-        color: #1a1f2e;
-        padding: 10px 20px;
-        border-radius: 999px;
-        font-weight: 800;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        transform: rotate(6deg);
-      }
-
-      .offer-content {
-        position: relative;
-        z-index: 1;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 32px;
-        align-items: center;
-      }
-
-      .offer-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 8px 16px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.18);
-        font-weight: 600;
-      }
-
-      .offer-title {
-        font-size: 32px;
-        font-weight: 700;
-        margin: 18px 0 8px;
-      }
-
-      .offer-gift {
-        display: flex;
-        gap: 16px;
-        align-items: center;
-        background: rgba(255, 255, 255, 0.12);
-        padding: 18px;
-        border-radius: 16px;
-      }
-
-      .offer-gift img {
-        width: 60px;
-        height: 60px;
-      }
-
-      .icon-stack {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        justify-content: center;
-      }
-
-      .icon-stack img {
-        width: 80px;
-        height: 80px;
-        border-radius: 20px;
-        background: rgba(255, 255, 255, 0.12);
-        padding: 18px;
-      }
-
-      .slots-remaining {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        padding: 14px 28px;
-        border-radius: 999px;
-        background: linear-gradient(135deg, #ff6b35, #ffb347);
-        color: #fff;
-        font-weight: 700;
-        font-size: 18px;
-        letter-spacing: -0.01em;
-        box-shadow: 0 18px 30px rgba(255, 107, 53, 0.25);
-        margin: 28px auto 0;
-        min-width: 220px;
-      }
-
-      .slots-remaining.slot-highlight {
-        animation: slotPulse 1.1s ease;
-      }
-
-      .slots-remaining.slot-change {
-        animation: slotFlash 0.9s ease;
-      }
-
-      .live-feed {
-        margin: 32px auto 0;
-        border-radius: 32px;
-        border: 1px solid var(--border);
-        box-shadow: 0 25px 70px rgba(26, 31, 46, 0.08);
-        overflow: hidden;
-        max-width: 520px;
-      }
-
-      .live-feed-header {
-        background: linear-gradient(135deg, #1a1f2e, #2d3560);
-        color: #fff;
-        padding: 24px;
-      }
-
-      .live-feed-header h3 {
-        margin: 0;
-        font-size: 22px;
-        font-weight: 700;
-      }
-
-      .live-feed-header span {
-        font-size: 15px;
-        opacity: 0.85;
-        margin-top: 6px;
-        display: block;
-      }
-
-      .live-feed-window {
-        max-height: 360px;
-        overflow: hidden;
-        background: #fff;
-      }
-
-      .live-feed-track {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        padding: 24px;
-        animation: feedScroll 22s linear infinite;
-      }
-
-      .live-feed:hover .live-feed-track {
-        animation-play-state: paused;
-      }
-
-      @keyframes feedScroll {
-        0% {
-          transform: translateY(0);
-        }
-        100% {
-          transform: translateY(-50%);
-        }
-      }
-
-      .feed-card {
-        border: 1px solid var(--border);
-        border-radius: 20px;
-        padding: 16px 20px;
-        background: #fff;
-        box-shadow: 0 10px 30px rgba(26, 31, 46, 0.06);
-      }
-
-      .feed-card-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-weight: 700;
-        margin-bottom: 6px;
-      }
-
-      .feed-age {
-        font-size: 14px;
-        color: var(--muted);
-      }
-
-      .feed-phone {
-        font-size: 15px;
-        margin-bottom: 8px;
-        color: var(--secondary);
-      }
-
-      .feed-status {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 14px;
-        font-weight: 600;
-      }
-
-      @keyframes slotPulse {
-        0% {
-          transform: scale(0.92);
-        }
-        60% {
-          transform: scale(1.05);
-          box-shadow: 0 22px 40px rgba(255, 107, 53, 0.35);
-        }
-        100% {
-          transform: scale(1);
-          box-shadow: 0 18px 30px rgba(255, 107, 53, 0.25);
-        }
-      }
-
-      @keyframes slotFlash {
-        0% {
-          background: linear-gradient(135deg, #ffd23f, #ffea7a);
-        }
-        100% {
-          background: linear-gradient(135deg, #ff6b35, #ffb347);
-        }
-      }
-
-      .status-badge {
-        padding: 6px 14px;
-        border-radius: 999px;
-        font-size: 13px;
-        font-weight: 600;
-        display: inline-block;
-      }
-
-      .status-success {
-        background: rgba(6, 214, 160, 0.15);
-        color: #04a777;
-      }
-
-      .status-wait {
-        background: rgba(255, 210, 63, 0.18);
-        color: #c18400;
-      }
-
-      .status-progress {
-        background: rgba(122, 77, 255, 0.15);
-        color: #6941da;
-      }
-
-      .benefit-section {
-        background: #fff;
-        border-radius: 36px;
-        border: 2px solid rgba(26, 31, 46, 0.08);
-        padding: 56px 48px;
-        box-shadow: 0 40px 90px rgba(26, 31, 46, 0.12);
-      }
-
-      .benefit-summary {
-        text-align: center;
-        margin-bottom: 32px;
-        font-size: 18px;
-        color: var(--secondary);
-      }
-
-      .benefit-summary strong {
-        color: var(--accent-orange);
-      }
-
-      .benefit-panel {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 24px;
-      }
-
-      .benefit-item {
-        position: relative;
-        padding: 32px 28px;
-        border-radius: 24px;
-        background: var(--card-bg);
-        border: 1px solid rgba(26, 31, 46, 0.1);
-      }
-
-      .benefit-item::before {
-        content: attr(data-label);
-        position: absolute;
-        top: -16px;
-        left: 24px;
-        padding: 6px 14px;
-        border-radius: 999px;
-        font-weight: 700;
-        font-size: 14px;
-        background: var(--primary);
-        color: #fff;
-      }
-
-      .benefit-item h3 {
-        font-size: 26px;
-        margin-bottom: 12px;
-      }
-
-      .benefit-keyword {
-        display: inline-block;
-        font-size: 28px;
-        font-weight: 800;
-        background: linear-gradient(120deg, #ff6b35, #ffb347);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-
-      .benefit-item p {
-        margin: 10px 0 0;
-        color: var(--secondary);
-        font-size: 18px;
-      }
-
-      .benefit-table-note {
-        text-align: center;
-        font-size: 16px;
-        color: var(--secondary);
-        margin-top: 20px;
-      }
-
-      .reason-table {
-        margin-top: 32px;
-        border: 1px solid var(--border);
-        border-radius: 28px;
-        overflow: hidden;
-        box-shadow: 0 25px 70px rgba(26, 31, 46, 0.08);
-      }
-
-      .reason-header {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        background: #0d4d24;
-        color: #fff;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        text-align: center;
-        padding: 16px 12px;
-        font-size: 16px;
-      }
-
-      .reason-row {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        border-top: 1px dashed rgba(26, 31, 46, 0.1);
-        background: #fff;
-      }
-
-      .reason-row:first-of-type {
-        border-top: none;
-      }
-
-      .reason-left,
-      .reason-right {
-        padding: 24px;
-        display: flex;
-        gap: 16px;
-        align-items: flex-start;
-      }
-
-      .reason-right {
-        border-left: 1px solid rgba(26, 31, 46, 0.06);
-        color: var(--secondary);
-        font-size: 15px;
-        line-height: 1.5;
-      }
-
-      .reason-index {
-        width: 42px;
-        height: 42px;
-        border-radius: 50%;
-        background: rgba(0, 128, 0, 0.08);
-        color: #0d4d24;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 700;
-      }
-
-      .reason-left-title {
-        font-size: 17px;
-        font-weight: 600;
-        margin-bottom: 6px;
-      }
-
-      .reason-left-highlight {
-        font-size: 16px;
-        font-weight: 700;
-        color: #d61c1c;
-      }
-
-      .form-wrapper {
-        max-width: 520px;
-        margin: 0 auto;
-        border-radius: 28px;
-        border: 1px solid var(--border);
-        overflow: hidden;
-        box-shadow: 0 25px 60px rgba(26, 31, 46, 0.12);
-      }
-
-      iframe {
-        width: 100%;
-        border: none;
-        display: block;
-      }
-
-      .faq {
-        max-width: 720px;
-        margin: 0 auto;
-        border: 1px solid var(--border);
-        border-radius: 20px;
-        overflow: hidden;
-      }
-
-      .faq-item {
-        padding: 28px;
-        border-bottom: 1px solid var(--border);
-      }
-
-      .faq-item:last-child {
-        border-bottom: none;
-      }
-
-      .faq-question {
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 10px;
-      }
-
-      .faq-answer {
-        color: var(--muted);
-        margin: 0;
-      }
-
-      .cta-center {
-        text-align: center;
-        margin-top: 40px;
-      }
-
-      footer {
-        text-align: center;
-        color: var(--muted);
-        padding: 60px 0;
-        border-top: 1px solid var(--border);
-      }
-
-      .reveal {
-        opacity: 0;
-        transform: translateY(60px);
-        transition: opacity 0.8s ease, transform 0.8s ease;
-      }
-
-      .reveal.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      @media (max-width: 767px) {
-        section {
-          padding: 70px 0;
-        }
-
-        .offer-card {
-          padding: 32px 24px;
-        }
-      }
-
-      @media (max-width: 640px) {
-        .feed-card {
-          padding: 14px 16px;
-        }
-
-        .feed-card-header {
-          font-size: 15px;
-        }
-
-        .feed-phone {
-          font-size: 14px;
-        }
-
-        .live-feed-track {
-          padding: 20px;
-          gap: 10px;
-        }
-
-        .reason-table {
-          border-radius: 20px;
-        }
-
-        .reason-header {
-          grid-template-columns: 1fr;
-        }
-
-        .reason-row {
-          grid-template-columns: 1fr;
-        }
-
-        .reason-right {
-          border-left: none;
-          border-top: 1px solid rgba(26, 31, 46, 0.06);
-        }
-
-        .reason-left,
-        .reason-right {
-          padding: 18px;
-        }
+      .hero-bound {
+        max-width: var(--hero-media-width, 100%);
       }
     </style>
   </head>
-  <body>
-    <header class="hero">
-      <div class="page hero-inner">
-        <div class="eyebrow">손해평가사 응시 준비 전용</div>
-        <h1>합격시 <span class="highlight">수강료 100% 환불</span></h1>
-        <p>
-          실력으로 합격하고, 돈도 돌려받으세요.<br />
-          상담만 해도 <strong>적중 예상문제</strong>를 무료로 드립니다.
-        </p>
-        <a class="cta-button" href="#consult-form">🎁 지금 바로 무료 상담 신청하기</a>
-        <div class="eyebrow-note">
-          <span>⏱</span>
-          <span>평균 24시간 이내에 상담 전화를 드립니다.</span>
+  <body class="min-h-screen bg-neutral-50 font-display">
+    <main class="flex flex-col items-center w-full">
+      <!-- Hero -->
+      <section class="w-full flex flex-col items-center">
+        <div class="w-full flex justify-center">
+          <div
+            class="hero-bound w-full flex items-center justify-center gap-4 bg-white px-4 py-3 text-center"
+          >
+            <img
+              src="태극마크.jpg"
+              alt="태극 문양 로고"
+              class="h-12 w-auto object-contain"
+              loading="lazy"
+            />
+            <span class="text-xl sm:text-2xl font-bold text-[#0F172A]">
+              농림축산식품부
+            </span>
+          </div>
         </div>
-      </div>
-    </header>
-
-    <section class="offer-section page reveal" id="gift">
-      <div class="offer-card">
-        <span class="priority-sticker">선착순 50명</span>
-        <div class="offer-content">
-          <div>
-            <div class="offer-badge">NEW 혜택 안내</div>
-            <div class="offer-title">시험 안내 · 적중 예상문제 증정</div>
-            <p class="offer-subtitle" style="font-size:18px;margin-bottom:24px;">
-              상담 신청만 해도 상세 시험 안내와 적중 예상문제 PDF를 무료로 드립니다.
-            </p>
-            <div class="offer-gift">
+        <div class="w-full flex justify-center">
+          <div class="hero-bound w-full">
+            <a
+              href="https://marketclub.cafe24.com/insert_form0.php?it=740&pt=hominyaya"
+              target="_blank"
+              rel="noreferrer"
+              class="inline-flex w-full focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-300"
+              aria-label="히어로 이미지 클릭 시 상담 신청 페이지로 이동"
+            >
               <img
-                src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4da.svg"
-                alt="자료 아이콘"
+                id="heroImage"
+                src="섹션1.webp"
+                alt="손해평가사 랜딩 히어로 이미지"
+                class="block w-full h-auto max-w-full"
                 loading="lazy"
               />
-              <div>
-                시험 일정, 합격 전략 안내와 적중 예상문제를 한번에 받아보세요.
+            </a>
+          </div>
+        </div>
+        <div class="w-full flex justify-center mt-2 sm:mt-4 mb-5 sm:mb-10 px-3 sm:px-6">
+          <div class="hero-bound w-full">
+            <div
+              class="relative overflow-hidden rounded-3xl bg-white/90 backdrop-blur-lg shadow-[0_20px_60px_rgba(15,23,42,0.15)] ring-1 ring-white/60"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-[#f0f5ff] via-[#fdf2f8] to-[#ecfdf5] opacity-90"
+              ></div>
+              <div
+                class="relative flex w-full flex-row items-center gap-4 px-6 py-6 text-left"
+              >
+                <img
+                  src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f381/512.webp"
+                  alt="선물 상자 이모지"
+                  class="h-12 w-12 drop-shadow-lg"
+                  loading="lazy"
+                />
+                <div class="flex flex-1 flex-col text-left min-w-0">
+                  <span
+                    class="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.3em] text-slate-500"
+                  >
+                    limited today
+                    <span class="h-[2px] w-12 rounded-full bg-slate-200"></span>
+                  </span>
+                  <p class="text-lg sm:text-xl font-semibold text-slate-900 leading-snug">
+                    <span class="block">오늘 상담자 한정</span>
+                    <span
+                      class="block mt-1 text-2xl sm:text-[26px] font-extrabold text-transparent bg-gradient-to-r from-pink-500 via-rose-500 to-violet-500 bg-clip-text drop-shadow-[0_4px_12px_rgba(244,114,182,0.35)]"
+                    >
+                      적중률 96% 합격 예상문제 PDF 즉시 제공
+                    </span>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-          <div class="icon-stack" aria-hidden="true">
-            <img
-              src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f52e.svg"
-              alt=""
-              loading="lazy"
-            />
-            <img
-              src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f381.svg"
-              alt=""
-              loading="lazy"
-            />
-          </div>
         </div>
-      </div>
-      <div class="slots-remaining" id="slotsRemaining">⚡ 현재 9명 남음</div>
-    </section>
+      </section>
 
-    <section class="page reveal" id="live-feed">
-      <div class="live-feed">
-        <div class="live-feed-header">
-          <h3>실시간 상담자 리스트</h3>
-          <span>방금 신청한 분들 · 계속 업데이트 중</span>
+      <!-- Problem Section -->
+      <section class="w-full bg-white mt-2 sm:mt-6 flex flex-col items-center px-3 sm:px-6">
+        <div class="hero-bound w-full">
+          <img
+            src="섹션2.webp"
+            alt="불안한 현재와 안정된 미래를 대비한 이미지"
+            class="block w-full h-auto"
+            loading="lazy"
+          />
         </div>
-        <div class="live-feed-window" id="live-feed-window">
-          <div class="live-feed-track" id="live-feed-track"></div>
-        </div>
-      </div>
-    </section>
-
-    <main>
-      <section class="page reveal" id="benefit">
-        <div class="benefit-section">
-          <h2 class="section-title" style="margin-bottom: 28px;">
-            혜택을 <span>한눈에 확인</span>
+        <div class="hero-bound w-full max-w-4xl mx-auto text-center py-8 sm:py-16">
+          <h2 class="text-[32px] font-bold text-[#1F2937] leading-tight">
+            지금의 일,<br class="sm:hidden" />
+            5년 뒤에도 자신 있나요?
           </h2>
-          <p class="benefit-summary">
-            <strong>합격 = 수강료 환불</strong>, <strong>상담 = 즉시 자료</strong>를 확실히
-            보장합니다.
+          <p class="mt-6 text-[18px] leading-[1.7] text-[#4B5563]">
+            수입은 줄고, 일은 힘들고, 불안은 커집니다.<br />
+            하지만 ‘자격’을 갖춘 사람은 위기가 기회가 됩니다.
           </p>
-          <div class="benefit-panel">
-            <article class="benefit-item" data-label="혜택 1">
-              <h3>합격하면</h3>
-              <span class="benefit-keyword">수강료 전액 환불</span>
-              <p>실력으로 합격하고 비용은 돌려받으세요. 합격 인증만 하면 환불이 진행됩니다.</p>
-            </article>
-            <article class="benefit-item" data-label="혜택 2">
-              <h3>상담 완료 시</h3>
-              <span class="benefit-keyword">시험 안내 + 적중 예상문제</span>
-              <p>상담을 마치는 즉시 시험 일정 안내와 적중 예상문제를 바로 전달해 드립니다.</p>
-            </article>
+          <div class="mt-10 rounded-[32px] bg-gradient-to-r from-[#dbeafe] via-[#fdf2f8] to-[#ecfccb] p-[2px] shadow-lg shadow-sky-100">
+            <div class="rounded-[28px] bg-white/90 px-6 py-12 text-center">
+              <p class="text-2xl sm:text-[28px] font-extrabold text-[#0F172A] leading-[1.5]">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#2563eb] via-[#7c3aed] to-[#ec4899]">
+                  준비만 해도 보상 받고,
+                </span>
+                <span class="block">
+                  합격하면 <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#f97316] to-[#ef4444]">전액 돌려받는 자격</span>
+                </span>
+              </p>
+              <p class="mt-3 text-base sm:text-lg font-semibold text-[#475569]">
+                “이보다 확실한 시작은 없습니다.”
+              </p>
+              <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div class="flex items-center justify-center gap-3 rounded-2xl border border-[#e2e8f0] bg-[#f8fafc] px-4 py-3">
+                  <span class="flex h-10 w-10 items-center justify-center rounded-full bg-[#e0f2fe] text-[#0ea5e9] text-xl">📘</span>
+                  <div class="text-left">
+                    <p class="text-base font-semibold text-[#0f172a]">
+                      상담 후 적중문제 제공
+                    </p>
+                    <p class="text-sm text-[#475569]">합격률 UP 가능</p>
+                  </div>
+                </div>
+                <div class="flex items-center justify-center gap-3 rounded-2xl border border-[#fde68a] bg-[#fffbeb] px-4 py-3">
+                  <span class="flex h-10 w-10 items-center justify-center rounded-full bg-[#fef3c7] text-[#f59e0b] text-xl">💰</span>
+                  <div class="text-left">
+                    <p class="text-base font-semibold text-[#92400e]">
+                      합격 시 수강료 100% 환급
+                    </p>
+                    <p class="text-sm text-[#b45309]">조건 없이 전액 반환</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="page reveal" id="why">
-        <h2 class="section-title">⏰ 지금 상담 신청하세요!</h2>
-        <p style="text-align:center; color: var(--secondary); margin-bottom: 24px;">
-          무료 지원 혜택을 놓치면 다시 받기 어렵습니다. 핵심 지원 내용을 한눈에 확인하세요.
-        </p>
-        <div class="reason-table">
-          <div class="reason-header">
-            <span>무료지원내용</span>
-            <span>내 용</span>
+      <!-- Solution Section -->
+      <section class="w-full bg-white px-4 sm:px-6 pt-2 sm:pt-4 pb-16 sm:pb-20">
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center max-w-3xl mx-auto">
+            <h2 class="text-[28px] sm:text-[36px] font-bold text-[#1F2937] leading-tight">
+              손해평가사,<br class="sm:hidden" />
+              불안한 현실을 바꾸는 자격입니다.
+            </h2>
+            <p class="mt-4 text-base sm:text-lg text-[#4B5563] leading-relaxed max-w-2xl mx-auto px-2 sm:px-0">
+              정부 위탁직으로 안정된 일감이 이어지고,<br class="sm:hidden" />
+              40대 이후에도 꾸준히 활동 가능합니다.<br />
+              <span class="relative inline-flex items-center gap-3 text-xl sm:text-2xl font-extrabold text-[#1E3A8A] mt-2 px-4 py-3 rounded-2xl bg-white shadow-[0_10px_25px_rgba(15,23,42,0.15)]">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/12166/12166817.png"
+                  alt="3D success icon"
+                  class="h-10 w-10 animate-tilt-wiggle"
+                  loading="lazy"
+                />
+                경험보다 ‘자격’이 수입을 결정합니다.
+              </span>
+            </p>
           </div>
-            <div class="reason-row">
-              <div class="reason-left">
-                <div class="reason-index">01</div>
-                <div>
-                  <div class="reason-left-title">국가공인자격증 취득</div>
-                  <div class="reason-left-highlight">전문가 무료컨설팅</div>
-                </div>
-              </div>
-              <div class="reason-right">
-                무제한 1:1 전문가 상담으로 합격 전략을 맞춤 설계해 드립니다.
-              </div>
+          <div class="mt-8 w-full flex justify-center">
+            <div class="hero-bound w-full rounded-3xl overflow-hidden shadow-lg shadow-slate-200">
+              <img
+                src="섹션3.webp"
+                alt="전문가가 서류를 검토하는 모습"
+                class="w-full h-auto object-cover"
+                loading="lazy"
+              />
             </div>
-            <div class="reason-row">
-              <div class="reason-left">
-                <div class="reason-index">02</div>
-                <div>
-                  <div class="reason-left-title">손해평가사 자격증</div>
-                  <div class="reason-left-highlight">96% 적중문제 무료 제공</div>
-                </div>
-              </div>
-              <div class="reason-right">
-                자격증 취득 부담을 줄이기 위해 기출·적중 문제 풀이 자료를 전부 지원합니다.
-              </div>
+          </div>
+          <section class="hero-bound w-full mx-auto bg-white text-center py-10 px-4 sm:px-6">
+            <div class="bg-gradient-to-b from-[#E0F2FE] via-white to-white rounded-2xl shadow-sm p-6">
+              <img
+                src="income_3d.png"
+                alt="3D 수입 아이콘"
+                class="w-20 h-20 mx-auto mb-4"
+                loading="lazy"
+              />
+              <h3 class="text-2xl font-bold text-[#2456A6]">
+                목표보다 더 커지는
+                <span class="block mt-1 text-4xl sm:text-[40px] font-black text-transparent bg-gradient-to-r from-[#FFCC00] via-[#FF7A18] to-[#F43F5E] bg-clip-text drop-shadow-[0_10px_25px_rgba(244,63,94,0.35)]">
+                  월 500만 원 수입
+                </span>
+              </h3>
+              <p class="mt-3 text-gray-600 leading-relaxed">
+                손해평가사는 단기 알바가 아닌,<br />정부가 위탁하는 장기 수익 구조입니다.
+              </p>
             </div>
-            <div class="reason-row">
-              <div class="reason-left">
-                <div class="reason-index">03</div>
-                <div>
-                  <div class="reason-left-title">자격증 취득 후 진로 상담</div>
-                  <div class="reason-left-highlight">취업률 90% 육박 · 협회 연계</div>
-                </div>
-              </div>
-              <div class="reason-right">
-                취업 연계와 정보 공유를 통해 빠르게 현업에 안착하도록 돕습니다.
-              </div>
+            <div class="mt-10 rounded-2xl shadow-sm p-6 bg-[#F9FAFB]">
+              <h3 class="text-[28px] sm:text-[32px] font-bold text-[#2456A6]">
+                정부 위탁 중심의
+                <span class="block mt-1 text-transparent bg-clip-text bg-gradient-to-r from-[#2456A6] via-[#1E40AF] to-[#6366F1]">
+                  안정된 일감 구조
+                </span>
+              </h3>
+              <p class="mt-2 text-lg text-gray-600 leading-relaxed">
+                <span class="font-semibold text-[#1F2937]">농식품 전문 공무원</span>, <span class="font-semibold text-[#1F2937]">농산물 연구기관</span> 등<br />
+                공공기관 중심의 일거리로<br />
+                <span class="inline-block mt-1 rounded-full bg-[#E0F2FE] px-3 py-1 text-[#2456A6] font-semibold">
+                  생활 기반이 흔들리지 않습니다.
+                </span>
+              </p>
+              <img
+                src="취업처.webp"
+                alt="손해평가사 취업처"
+                class="w-full h-auto rounded-xl shadow-sm object-cover mt-4"
+                loading="lazy"
+              />
             </div>
-        </div>
-        <p style="text-align:center; margin-top:28px; color: var(--muted);">
-          상담 = 무료 자료 │ 합격 = 수강료 환불 │ 상담 완료 시 혜택 즉시 적용
-        </p>
-        <div class="cta-center">
-          <a class="cta-button" href="#consult-form">👉 지금 신청하지 않으면 손해</a>
+            <a
+              href="https://marketclub.cafe24.com/insert_form0.php?it=740&pt=hominyaya"
+              target="_blank"
+              rel="noreferrer"
+              class="group mt-10 inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-[#2563eb] via-[#7c3aed] to-[#ec4899] px-8 py-4 text-lg font-bold text-white shadow-[0_20px_35px_rgba(79,70,229,0.35)] transition-all duration-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#c7d2fe] hover:translate-y-[-2px]"
+            >
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-2xl">🚀</span>
+              <span>무료 상담으로 내 가능성 알아보기</span>
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-xl transition-transform duration-200 group-hover:translate-x-1">→</span>
+            </a>
+          </section>
         </div>
       </section>
 
-      <section class="page reveal" id="consult-form">
-        <h2 class="section-title">
-          손해평가사 <span>상담 신청</span>
-        </h2>
-        <p style="text-align: center; color: var(--muted); margin-bottom: 28px;">
-          <strong style="color: var(--accent-orange);">30~55세</strong> 지원자를 우선으로 배정하며, 남겨주신
-          정보는 상담 외 다른 용도로 사용하지 않습니다.
-        </p>
-        <div class="form-wrapper">
+      <!-- Benefit Support -->
+      <section id="benefit-support" class="w-full bg-[#F9FAFB] text-center py-16 px-4 sm:px-6">
+        <div class="hero-bound w-full max-w-4xl mx-auto">
+          <h2 class="text-3xl font-bold text-[#1F2937] mb-10">취업지원 혜택 안내</h2>
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+            <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 flex flex-col items-center text-center gap-3">
+              <img src="https://cdn-icons-png.flaticon.com/512/8371/8371954.png" alt="국가공인 자격증 아이콘" class="w-12 h-12" loading="lazy" />
+              <h3 class="text-[26px] font-bold text-[#2456A6]">국가공인자격증 취득</h3>
+              <p class="text-[#E11D48] font-semibold text-lg">전문가 1:1 무료 컨설팅</p>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                학습 플랜부터 응시 전략까지 담당 매니저가 전담 지원합니다.
+              </p>
+            </div>
+            <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 flex flex-col items-center text-center gap-3">
+              <img src="https://cdn-icons-png.flaticon.com/512/8374/8374057.png" alt="적중문제 아이콘" class="w-12 h-12" loading="lazy" />
+              <h3 class="text-[26px] font-bold text-[#2456A6]">손해평가사 적중문제</h3>
+              <p class="text-[#E11D48] font-semibold text-lg">96% 적중 PDF 즉시 제공</p>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                최신 기출과 해설을 담은 요약본을 상담 직후 바로 받아보세요.
+              </p>
+            </div>
+            <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 flex flex-col items-center text-center gap-3">
+              <img src="https://cdn-icons-png.flaticon.com/512/7726/7726148.png" alt="진로 상담 아이콘" class="w-12 h-12" loading="lazy" />
+              <h3 class="text-[26px] font-bold text-[#2456A6]">진로/취업 컨시어지</h3>
+              <p class="text-[#E11D48] font-semibold text-lg">취업률 90%에 육박</p>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                협회·조합 연계를 통해 자격 취득 직후 일자리를 자동 매칭합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Reviews -->
+      <section id="reviews" class="w-full bg-white py-16 px-6 text-center">
+        <div class="hero-bound w-full max-w-3xl mx-auto">
+          <h2 class="text-3xl font-bold text-[#1F2937]">많은 분들이 이미 시작했습니다.</h2>
+          <p class="text-base text-[#4B5563] mt-3">
+            실제 상담 후 자격 취득과 취업에 성공한 분들의 이야기입니다.
+          </p>
+          <div class="mt-10 space-y-6">
+            <div class="bg-[#F9FAFB] rounded-2xl shadow-sm p-6 text-left flex items-center gap-5">
+              <img
+                src="review1.webp"
+                alt="김OO 후기 이미지"
+                class="w-32 h-24 md:w-48 md:h-40 rounded-xl object-cover shrink-0"
+                loading="lazy"
+              />
+              <div class="flex-1">
+                <div class="flex items-center gap-3 text-sm font-semibold text-[#0F172A]">
+                  <span class="text-xl">👩‍💼</span> 김OO (42세, 경기도)
+                </div>
+                <p class="mt-3 text-[#2456A6] font-bold">“무료 상담 후 바로 방향을 잡고 첫 시험에 합격했습니다.”</p>
+                <p class="mt-2 text-sm text-[#4B5563] leading-relaxed">
+                  퇴직 후 미래가 막막했는데, 예상문제가 실제 시험과 거의 같았어요.<br />
+                  첫 시험에 합격하고 협회 연계로 근무 중입니다.
+                </p>
+              </div>
+            </div>
+            <div class="bg-[#F9FAFB] rounded-2xl shadow-sm p-6 text-left flex items-center gap-5">
+              <img
+                src="review2.webp"
+                alt="박OO 후기 이미지"
+                class="w-32 h-24 md:w-48 md:h-40 rounded-xl object-cover shrink-0"
+                loading="lazy"
+              />
+              <div class="flex-1">
+                <div class="flex items-center gap-3 text-sm font-semibold text-[#0F172A]">
+                  <span class="text-xl">👨‍🔧</span> 박OO (57세, 전북)
+                </div>
+                <p class="mt-3 text-[#2456A6] font-bold">“적중문제 덕분에 합격 자신감이 생겼습니다.”</p>
+                <p class="mt-2 text-sm text-[#4B5563] leading-relaxed">
+                  실제 시험에서 비슷한 문제가 나와 놀랐어요.<br />
+                  현재는 농작물재해조사 계약직으로 활동하면서 월 520만 원대 수입을 얻고 있습니다.
+                </p>
+              </div>
+            </div>
+            <div class="bg-[#F9FAFB] rounded-2xl shadow-sm p-6 text-left flex items-center gap-5">
+              <img
+                src="review3.webp"
+                alt="이OO 후기 이미지"
+                class="w-32 h-24 md:w-48 md:h-40 rounded-xl object-cover shrink-0"
+                loading="lazy"
+              />
+              <div class="flex-1">
+                <div class="flex items-center gap-3 text-sm font-semibold text-[#0F172A]">
+                  <span class="text-xl">👩‍💻</span> 이OO (53세, 부산)
+                </div>
+                <p class="mt-3 text-[#2456A6] font-bold">“공공기관 위탁직이라 믿고 시작했어요.”</p>
+                <p class="mt-2 text-sm text-[#4B5563] leading-relaxed">
+                  아이들을 돌보면서 공부할 수 있었고, 상담 후 2개월 만에 자격을 취득했습니다.<br />
+                  지금은 공공기관 위탁직으로 꾸준히 활동 중입니다.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-12 inline-flex w-full justify-center">
+            <a
+              href="https://marketclub.cafe24.com/insert_form0.php?it=740&pt=hominyaya"
+              target="_blank"
+              rel="noreferrer"
+              class="group inline-flex items-center gap-3 rounded-2xl border border-[#c7d2fe] bg-white px-8 py-4 text-lg font-bold text-[#1E3A8A] shadow-[0_20px_35px_rgba(15,23,42,0.12)] transition-all duration-200 hover:-translate-y-1 hover:border-[#2456A6]"
+            >
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#eef2ff] text-[#4338ca] text-2xl">✨</span>
+              <span>나도 무료 상담 받아보기</span>
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#eef2ff] text-[#4338ca] text-xl transition-transform duration-200 group-hover:translate-x-1">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="w-full bg-[#F9FAFB] py-16 px-6 text-left">
+        <div class="hero-bound w-full max-w-2xl mx-auto">
+          <h2 class="text-3xl font-bold text-center text-[#1F2937]">자주 묻는 질문</h2>
+          <p class="text-center text-base text-[#4B5563] mt-3">상담 전에 궁금한 점을 빠르게 해결하세요.</p>
+          <div class="mt-8 divide-y divide-gray-200 rounded-2xl border border-gray-200 bg-white">
+            <details class="group p-5" open>
+              <summary class="flex items-center justify-between cursor-pointer">
+                <h3 class="text-lg font-semibold text-[#2456A6]">손해평가사 자격증, 비전공자도 가능한가요?</h3>
+                <span class="text-[#2456A6] transition-transform duration-300 group-open:rotate-180">▼</span>
+              </summary>
+              <p class="text-base text-[#4B5563] mt-3 leading-relaxed">
+                네. 전공이나 나이 제한이 없으며, 정부 위탁형 자격이라 누구나 준비할 수 있습니다.
+              </p>
+            </details>
+            <details class="group p-5">
+              <summary class="flex items-center justify-between cursor-pointer">
+                <h3 class="text-lg font-semibold text-[#2456A6]">시험이 어렵진 않나요?</h3>
+                <span class="text-[#2456A6] transition-transform duration-300 group-open:rotate-180">▼</span>
+              </summary>
+              <p class="text-base text-[#4B5563] mt-3 leading-relaxed">
+                96% 적중 예상문제 PDF를 제공해 초보자도 높은 합격률을 기대할 수 있습니다.
+              </p>
+            </details>
+            <details class="group p-5">
+              <summary class="flex items-center justify-between cursor-pointer">
+                <h3 class="text-lg font-semibold text-[#2456A6]">자격증 취득 후 실제로 일할 수 있나요?</h3>
+                <span class="text-[#2456A6] transition-transform duration-300 group-open:rotate-180">▼</span>
+              </summary>
+              <p class="text-base text-[#4B5563] mt-3 leading-relaxed">
+                네. 농업관련조합, 손해평가조합 등 협회 연계를 통해 바로 현장 투입이 가능합니다.
+              </p>
+            </details>
+            <details class="group p-5">
+              <summary class="flex items-center justify-between cursor-pointer">
+                <h3 class="text-lg font-semibold text-[#2456A6]">상담하면 비용이 발생하나요?</h3>
+                <span class="text-[#2456A6] transition-transform duration-300 group-open:rotate-180">▼</span>
+              </summary>
+              <p class="text-base text-[#4B5563] mt-3 leading-relaxed">
+                전혀 없습니다. 무료 1:1 상담과 함께 적중 예상문제도 무료로 받아보실 수 있습니다.
+              </p>
+            </details>
+            <details class="group p-5">
+              <summary class="flex items-center justify-between cursor-pointer">
+                <h3 class="text-lg font-semibold text-[#2456A6]">직장을 다니면서 준비할 수 있나요?</h3>
+                <span class="text-[#2456A6] transition-transform duration-300 group-open:rotate-180">▼</span>
+              </summary>
+              <p class="text-base text-[#4B5563] mt-3 leading-relaxed">
+                온라인 기반 커리큘럼이라 직장인·주부도 병행 가능합니다. 주말 집중 학습도 충분합니다.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final CTA -->
+      <section id="final-cta" class="w-full bg-gradient-to-b from-[#2456A6] to-[#1E3A8A] py-20 px-6 text-center">
+        <div class="hero-bound w-full text-white">
+          <h2 class="text-4xl sm:text-5xl font-bold leading-snug">이제 당신의 순서입니다.</h2>
+          <p class="text-[#FFCC00] text-xl sm:text-2xl font-semibold mt-5 leading-relaxed">
+            상담만 해도 ‘적중 예상문제’ 무료 제공!<br />
+            합격하면 수강료 전액 환급까지.
+          </p>
+        </div>
+      </section>
+
+      <!-- Urgency label -->
+      <section class="w-full bg-transparent py-8 px-6">
+        <div class="hero-bound w-full text-center">
+          <div
+            class="mb-4 inline-flex items-center gap-3 rounded-full border border-[#fee2e2] bg-[#fef2f2] px-5 py-3 text-base sm:text-lg text-[#b91c1c] shadow-md"
+            id="liveBadge"
+          >
+            🔔 <span id="liveText">방금 전 상담 신청이 들어왔습니다.</span>
+          </div>
+          <div class="relative overflow-hidden rounded-[30px] bg-gradient-to-r from-[#fdf2f8] via-[#ecfdf5] to-[#e0f2fe] p-1 shadow-[0_20px_40px_rgba(15,23,42,0.2)]">
+            <div class="flex items-center gap-4 rounded-[28px] bg-white/95 px-6 py-5">
+              <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-white shadow-lg">
+                <span class="text-3xl">🎯</span>
+              </div>
+              <div class="flex flex-col text-left">
+                <span class="text-[12px] uppercase tracking-[0.4em] text-slate-500">Limited Today</span>
+                <p class="text-xl sm:text-2xl font-semibold text-[#0F172A] leading-snug">
+                  오늘 상담 마감 전
+                </p>
+                <p class="mt-1 text-[26px] sm:text-[30px] font-extrabold leading-snug">
+                  <span class="text-[#ef4444]">적중 예상문제</span> +
+                  <span class="text-[#f97316]">수강료 100% 환급</span> 혜택을 꼭 확보하세요.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4 flex flex-col items-center text-7xl text-[#dc2626]">
+            <span class="animate-bounce drop-shadow-[0_10px_20px_rgba(220,38,38,0.5)]">⬇</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final form -->
+      <section id="final-form" class="w-full bg-transparent pt-2 pb-4 px-2 sm:px-4">
+        <div class="hero-bound w-full text-center">
           <iframe
-            src="https://marketclub.cafe24.com/form_make/form.php?type=default&pt=hominyaya&it=740&rgb1=&rgb2=&rgb3=&rgb4=&rgb5=&rgb6=&btn_name=&tracking_gubun=&tracking_code=&tracking_label="
-            height="660"
-            title="손해평가사 상담 신청 폼"
+            src="https://marketclub.cafe24.com/insert_form0.php?it=740&pt=hominyaya"
+            class="w-full h-[500px] rounded-2xl border border-gray-200 shadow-lg"
           ></iframe>
-        </div>
-      </section>
-
-      <section class="page reveal" id="faq">
-        <h2 class="section-title">자주 묻는 질문</h2>
-        <div class="faq">
-          <div class="faq-item">
-            <div class="faq-question">Q. 상담 받으면 꼭 수강해야 하나요?</div>
-            <p class="faq-answer">
-              A. 아니요. 상담만 받아도 예상문제를 드립니다.
-            </p>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">Q. 합격하면 정말 수강료를 돌려주나요?</div>
-            <p class="faq-answer">
-              A. 네, 합격 증명 시 수강료 100% 환불됩니다.
-            </p>
-          </div>
+          <p class="mt-4 inline-flex items-center gap-2 text-base sm:text-lg font-semibold text-[#b91c1c] animate-pulse leading-relaxed">
+            ✋ 이 페이지를 나가면 오늘 혜택이 사라집니다.<br />
+            상담 신청 후 10분 이내 전문 매니저가 바로 연락드립니다.
+          </p>
         </div>
       </section>
     </main>
-
-    <footer>© edu_certificate. All rights reserved.</footer>
-
-            <script>
-      const reveals = document.querySelectorAll('.reveal');
-      const observer = new IntersectionObserver(
-        entries => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.2 }
-      );
-
-      reveals.forEach(section => observer.observe(section));
-
-      const slotsEl = document.getElementById('slotsRemaining');
-      const liveFeedTrack = document.getElementById('live-feed-track');
-
-      const applicants = [
-        { name: '박**', age: 49, phone: '010-6***-8123', status: '신청완료' },
-        { name: '이**', age: 42, phone: '010-3***-2910', status: '신청완료' },
-        { name: '김**', age: 55, phone: '010-5***-4402', status: '상담중' },
-        { name: '최**', age: 38, phone: '010-2***-1301', status: '신청완료' },
-        { name: '정**', age: 47, phone: '010-9***-0204', status: '신청완료' },
-        { name: '한**', age: 52, phone: '010-1***-7744', status: '신청완료' },
-        { name: '윤**', age: 45, phone: '010-7***-6642', status: '검토중' }
-      ];
-
-      const statusClass = {
-        신청완료: 'status-success',
-        상담중: 'status-progress',
-        검토중: 'status-wait',
-        상담대기: 'status-wait'
-      };
-
-      const statusNotes = {
-        신청완료: '서류 접수 완료',
-        상담중: '상담 진행 중',
-        검토중: '정보 확인 중',
-        상담대기: '상담 대기 중'
-      };
-
-      function createCard(app) {
-        const card = document.createElement('div');
-        card.className = 'feed-card';
-
-        const header = document.createElement('div');
-        header.className = 'feed-card-header';
-        header.innerHTML = `<span>${app.name}</span><span class="feed-age">${app.age}세</span>`;
-
-        const phone = document.createElement('div');
-        phone.className = 'feed-phone';
-        phone.textContent = app.phone;
-
-        const statusWrap = document.createElement('div');
-        statusWrap.className = 'feed-status';
-
-        const badge = document.createElement('span');
-        badge.className = `status-badge ${statusClass[app.status] || 'status-success'}`;
-        badge.textContent = app.status;
-
-        const note = document.createElement('span');
-        note.textContent = statusNotes[app.status] || '';
-        note.style.color = 'var(--muted)';
-        note.style.fontSize = '13px';
-
-        statusWrap.appendChild(badge);
-        statusWrap.appendChild(note);
-
-        card.appendChild(header);
-        card.appendChild(phone);
-        card.appendChild(statusWrap);
-        return card;
-      }
-
-      function renderCards() {
-        if (!liveFeedTrack) return;
-        liveFeedTrack.innerHTML = '';
-        const duplicated = applicants.concat(applicants);
-        duplicated.forEach((app, idx) => {
-          const card = createCard(app);
-          if (idx >= applicants.length) {
-            card.setAttribute('aria-hidden', 'true');
-          }
-          liveFeedTrack.appendChild(card);
-        });
-      }
-
-      function refreshApplicants() {
-        applicants.push(applicants.shift());
-        applicants.forEach((app, idx) => {
-          if (idx % 2 === 0) {
-            app.status = '신청완료';
-          }
-        });
-        renderCards();
-      }
-
-      let remainingSlots = 9;
-      let slotAnimated = false;
-
-      function updateSlotText() {
-        if (slotsEl) {
-          slotsEl.textContent = `⚡ 현재 ${remainingSlots}명 남음`;
-        }
-      }
-
-      updateSlotText();
-      renderCards();
-
-      if (slotsEl) {
-        const slotObserver = new IntersectionObserver(
-          entries => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting && !slotAnimated) {
-                slotAnimated = true;
-                slotsEl.classList.add('slot-highlight');
-                setTimeout(() => {
-                  remainingSlots = Math.max(remainingSlots - 1, 0);
-                  updateSlotText();
-                  slotsEl.classList.add('slot-change');
-                  setTimeout(() => slotsEl.classList.remove('slot-change'), 900);
-                }, 900);
-                slotObserver.disconnect();
-              }
-            });
-          },
-          { threshold: 0.6 }
+    <script>
+      const heroImg = document.getElementById("heroImage");
+      const updateHeroWidth = () => {
+        if (!heroImg) return;
+        const width = heroImg.getBoundingClientRect().width;
+        document.documentElement.style.setProperty(
+          "--hero-media-width",
+          `${width}px`
         );
+      };
+      window.addEventListener("load", updateHeroWidth);
+      window.addEventListener("resize", updateHeroWidth);
+      heroImg?.addEventListener("load", updateHeroWidth);
 
-        slotObserver.observe(slotsEl);
+      const names = ["김OO", "박OO", "이OO", "최OO", "정OO"];
+      const regions = ["서울", "경기", "부산", "전북", "충남"];
+      const badge = document.getElementById("liveText");
+      if (badge) {
+        setInterval(() => {
+          const name = names[Math.floor(Math.random() * names.length)];
+          const region = regions[Math.floor(Math.random() * regions.length)];
+          const mask = () =>
+            String(Math.floor(1000 + Math.random() * 9000)).replace(/\d{2}$/, "XX");
+          const phone = `010-${mask()}-${mask()}`;
+          badge.textContent = `${region} ${name}님 상담 신청 완료 (${phone})`;
+        }, 4500);
       }
-
-      setInterval(refreshApplicants, 9000);
     </script>
-
-
   </body>
 </html>
